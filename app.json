@@ -53,7 +53,7 @@
     "cloudinary",
     "memcachier",
     "scheduler",
-    "sendgrid",
+    "sendgrid"
   ],
   "buildpacks": [
     {
