@@ -12,7 +12,16 @@
     "CLEARDB_DATABASE_URL": {
       "required": true
     },
-    "HEROKU_POSTGRESQL_CRIMSON_URL": {
+    "CLOUDINARY_URL": {
+      "required": true
+    },
+    "MEMCACHIER_PASSWORD": {
+      "required": true
+    },
+    "MEMCACHIER_SERVERS": {
+      "required": true
+    },
+    "MEMCACHIER_USERNAME": {
       "required": true
     },
     "LANG": {
@@ -29,13 +38,22 @@
     },
     "SECRET_KEY_BASE": {
       "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
     }
   },
   "formation": {
   },
   "addons": [
     "cleardb",
-    "heroku-postgresql"
+    "cloudinary",
+    "memcachier",
+    "scheduler",
+    "sendgrid",
   ],
   "buildpacks": [
     {
