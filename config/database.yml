@@ -52,11 +52,7 @@ test:
 staging:
   <<: *default
   database: billing-manager_staging
-  username: billing-manager
-  password: <%= ENV['BILLING-MANAGER_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
   database: billing-manager_production
-  username: billing-manager
-  password: <%= ENV['BILLING-MANAGER_DATABASE_PASSWORD'] %>
