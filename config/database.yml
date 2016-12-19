@@ -18,8 +18,10 @@ default: &default
   socket: /tmp/mysql.sock
 
 development:
-  <<: *default
-  database: billing-manager_development
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -47,8 +49,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: billing-manager_staging
+
 production:
   <<: *default
   database: billing-manager_production
-  username: billing-manager
-  password: <%= ENV['BILLING-MANAGER_DATABASE_PASSWORD'] %>
