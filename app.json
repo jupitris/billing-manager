@@ -12,7 +12,7 @@
     "CLEARDB_DATABASE_URL": {
       "required": true
     },
-    DATABASE_URL": {
+    "DATABASE_URL": {
       "required": true
     },
     "CLOUDINARY_URL": {
