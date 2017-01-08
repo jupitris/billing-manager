@@ -59,6 +59,10 @@ group :development do
   gem 'letter_opener'
 end
 
+group :staging do
+  gem 'rails_12factor'
+end
+
 group :production, :staging do
   gem 'unicorn'
 end
