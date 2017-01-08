@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'mysql2', '>= 0.4.5', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,6 +34,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 
+gem 'devise', '~> 3.4.0'
+gem 'cancancan'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -47,6 +56,7 @@ group :development do
   gem 'spring'
 
   gem 'sqlite3'
+  gem 'letter_opener'
 end
 
 group :production, :staging do
