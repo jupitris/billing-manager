@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   enum role: { admin: 0, member: 1 }
 
+  has_one :office
+
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email    = auth.info.email
