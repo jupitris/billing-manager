@@ -7,12 +7,13 @@ gem 'rails', '4.2.6'
 gem 'mysql2', '>= 0.4.5', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -35,12 +36,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 
 gem 'devise', '~> 3.4.0'
+gem 'activeadmin', github: 'activeadmin'
 gem 'cancancan'
+
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
+gem 'enum_help'
 gem 'dotenv-rails'
 
 group :development, :test do
@@ -57,6 +61,7 @@ group :development do
 
   gem 'sqlite3'
   gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.2.0'
 end
 
 group :staging do

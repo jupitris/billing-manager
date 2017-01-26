@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :offices
   root 'home#index'
 
   devise_for :users, :controllers => {
@@ -8,6 +9,10 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
   get 'users/show'
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

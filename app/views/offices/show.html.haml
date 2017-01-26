@@ -1,0 +1,51 @@
+%p#notice= notice
+
+%p
+  %b Office name:
+  = @office.office_name
+%p
+  %b Postal code:
+  = @office.postal_code
+%p
+  %b Country:
+  = @office.country_id
+%p
+  %b Prefecture:
+  = @office.prefecture
+%p
+  %b City:
+  = @office.city
+%p
+  %b Address line1:
+  = @office.address_line1
+%p
+  %b Address line2:
+  = @office.address_line2
+%p
+  %b Phone number:
+  = @office.phone_number
+%p
+  %b Fax number:
+  = @office.fax_number
+%p
+  %b Owner name:
+  = @office.owner_name
+%p
+  %b Delete flg:
+  = @office.delete_flg
+%p
+  %b Created by:
+  = @office.created_by
+%p
+  %b Created at:
+  = @office.created_at
+%p
+  %b Updated by:
+  = @office.updated_by
+%p
+  %b Updated at:
+  = @office.updated_at
+
+= link_to 'Edit', edit_office_path(@office)
+\|
+= link_to 'Back', offices_path
