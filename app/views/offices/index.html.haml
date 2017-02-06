@@ -1,0 +1,49 @@
+%h1 Listing offices
+
+%table
+  %thead
+    %tr
+      %th Office name
+      %th Postal code
+      %th Country
+      %th Prefecture
+      %th City
+      %th Address line1
+      %th Address line2
+      %th Phone number
+      %th Fax number
+      %th Owner name
+      %th Delete flg
+      %th Created by
+      %th Created at
+      %th Updated by
+      %th Updated at
+      %th
+      %th
+      %th
+
+  %tbody
+    - @offices.each do |office|
+      %tr
+        %td= office.office_name
+        %td= office.postal_code
+        %td= office.country_id
+        %td= office.prefecture
+        %td= office.city
+        %td= office.address_line1
+        %td= office.address_line2
+        %td= office.phone_number
+        %td= office.fax_number
+        %td= office.owner_name
+        %td= office.delete_flg
+        %td= office.created_by
+        %td= office.created_at
+        %td= office.updated_by
+        %td= office.updated_at
+        %td= link_to 'Show', office
+        %td= link_to 'Edit', edit_office_path(office)
+        %td= link_to 'Destroy', office, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Office', new_office_path

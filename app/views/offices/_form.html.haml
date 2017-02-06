@@ -1,0 +1,55 @@
+= form_for @office do |f|
+  - if @office.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@office.errors.count, "error")} prohibited this office from being saved:"
+      %ul
+        - @office.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :office_name
+    = f.text_field :office_name
+  .field
+    = f.label :postal_code
+    = f.text_field :postal_code
+  .field
+    = f.label :country_id
+    = f.number_field :country_id
+  .field
+    = f.label :prefecture
+    = f.text_field :prefecture
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :address_line1
+    = f.text_field :address_line1
+  .field
+    = f.label :address_line2
+    = f.text_field :address_line2
+  .field
+    = f.label :phone_number
+    = f.text_field :phone_number
+  .field
+    = f.label :fax_number
+    = f.text_field :fax_number
+  .field
+    = f.label :owner_name
+    = f.text_field :owner_name
+  .field
+    = f.label :delete_flg
+    = f.number_field :delete_flg
+  .field
+    = f.label :created_by
+    = f.number_field :created_by
+  .field
+    = f.label :created_at
+    = f.datetime_select :created_at
+  .field
+    = f.label :updated_by
+    = f.number_field :updated_by
+  .field
+    = f.label :updated_at
+    = f.datetime_select :updated_at
+  .actions
+    = f.submit 'Save'

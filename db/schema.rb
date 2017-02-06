@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229001440) do
+ActiveRecord::Schema.define(version: 20170126094520) do
+
+  create_table "offices", force: :cascade do |t|
+    t.string   "office_name",   limit: 255
+    t.string   "postal_code",   limit: 255
+    t.integer  "country_id",    limit: 4
+    t.string   "prefecture",    limit: 255
+    t.string   "city",          limit: 255
+    t.string   "address_line1", limit: 255
+    t.string   "address_line2", limit: 255
+    t.string   "phone_number",  limit: 255
+    t.string   "fax_number",    limit: 255
+    t.string   "owner_name",    limit: 255
+    t.integer  "delete_flg",    limit: 4
+    t.integer  "created_by",    limit: 4
+    t.datetime "created_at",                null: false
+    t.integer  "updated_by",    limit: 4
+    t.datetime "updated_at",                null: false
+    t.integer  "user_id",       limit: 4
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -35,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161229001440) do
     t.string   "uid",                    limit: 255, default: "", null: false
     t.string   "name",                   limit: 255
     t.string   "token",                  limit: 255
+    t.string   "role",                   limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

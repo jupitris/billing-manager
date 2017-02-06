@@ -1,2 +1,13 @@
 %h1 Home#index
 %p Find me in app/views/home/index.html.haml
+-if user_signed_in?
+  %div{class: 'col-md-4'}
+    %div{class: 'sidebar-nav affix', role: 'complementary'}
+      %ul{class: 'nav'}
+        %li
+          - if has_office?
+            = link_to 'Office', edit_office_path(own_office)
+          - else
+            = link_to "Office", new_office_path
+          = link_to "Customer", "#sample"
+          = link_to "Billing", "#sample"

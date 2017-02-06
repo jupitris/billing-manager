@@ -6,14 +6,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable, :trackable, :timeoutable, :validatable,
          :confirmable, :recoverable, :rememberable, :stretches => 20, :omniauth_providers => [:google_oauth2]
 
+  enum role: { admin: 0, member: 1 }
+
+  has_one :office
+
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
-    logger.debug auth.to_yaml
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email    = auth.info.email
       user.name     = auth.info.name
       user.provider = auth.provider
       user.uid      = auth.uid
       user.password = Devise.friendly_token[0,20]
+      user.role     = User.roles[:member]
     end
   end
 
@@ -24,6 +28,7 @@ class User < ActiveRecord::Base
       user.uid      = auth.uid
       user.email    = User.create_unique_email
       user.password = Devise.friendly_token[0,20]
+      user.role     = User.roles[:member]
     end
   end
 
@@ -35,6 +40,7 @@ class User < ActiveRecord::Base
       user.email    = auth.info.email
       user.token    = auth.credentials.token
       user.password = Devise.friendly_token[0,20]
+      user.role     = User.roles[:member]
     end
   end
 
